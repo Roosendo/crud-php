@@ -25,6 +25,8 @@ body {
   cursor: pointer;
   border-bottom: none;
   border-radius: 7px 7px 0 0;
+  text-decoration: none;
+  color: inherit;
 }
 
 .tab.active {

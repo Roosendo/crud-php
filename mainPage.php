@@ -16,10 +16,10 @@ $query = mysqli_query($con, $sql);
 </head>
 <body>
   <div id="dashboard">
-    <div class="tab active">Mostrar Usuario</div>
-    <div class="tab">Modificar Usuario</div>
-    <div class="tab">Eliminar Usuario</div>
-    <div class="tab">Imprimir Usuario</div>
+    <a href="#" class="tab active">Mostrar Usuario</a>
+    <a href="#" class="tab">Modificar Usuario</a>
+    <a href="#" class="tab">Eliminar Usuario</a>
+    <a href="#" class="tab">Imprimir Usuario</a>
   </div>
   <div class="content">
     <h2>Todos los Usuarios ...</h2>
