@@ -66,3 +66,21 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background-color: #e5e5e5;
 }
+
+.users-table--edit {
+  background: #009688;
+  padding: 6px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.users-table--delete {
+  background: #b11e1e;
+  padding: 6px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
