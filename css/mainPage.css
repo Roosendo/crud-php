@@ -69,6 +69,7 @@ tr:nth-child(odd) {
 
 .users-table--edit {
   background: #009688;
+  border-radius: 7px;
   padding: 6px;
   color: #fff;
   text-align: center;
@@ -78,6 +79,7 @@ tr:nth-child(odd) {
 
 .users-table--delete {
   background: #b11e1e;
+  border-radius: 7px;
   padding: 6px;
   color: #fff;
   text-align: center;
