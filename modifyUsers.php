@@ -12,14 +12,14 @@ $query = mysqli_query($con, $sql);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/mainPage.css">
-  <title>Página principal</title>
+  <title>Vals Coffee | Editar</title>
 </head>
 <body>
   <div id="dashboard">
-    <a href="#" class="tab active">Mostrar Usuario</a>
-    <a href="#" class="tab">Modificar Usuario</a>
-    <a href="#" class="tab">Eliminar Usuario</a>
-    <a href="#" class="tab">Imprimir Usuario</a>
+    <a href="showUsers.php" class="tab">Mostrar Usuario</a>
+    <a class="tab active">Modificar Usuario</a>
+    <a href="deleteUsers.php" class="tab">Eliminar Usuario</a>
+    <a href="#" class="tab">Imprimir Usuarios</a>
   </div>
   <div class="content">
     <h2>Todos los Usuarios ...</h2>
@@ -33,6 +33,7 @@ $query = mysqli_query($con, $sql);
             <th>Username</th>
             <th>Password</th>
             <th>Email</th>
+            <th>Editar</th>
           </tr>
         </thead>
         <tbody>
@@ -44,6 +45,7 @@ $query = mysqli_query($con, $sql);
             <td><?= $row['username'] ?></td>
             <td><?= $row['password'] ?></td>
             <td><?= $row['email'] ?></td>
+            <td><a href="update.php?id=<?= $row['id'] ?>" class="users-table--edit">Editar</a></td>
           </tr>
           <?php endwhile; ?>
         </tbody>

@@ -3,7 +3,7 @@
 include("conexion.php");
 $con = connection();
 
-$id=$_POST["id"];
+$id=$_POST['id'];
 $name = $_POST['name'];
 $lastname = $_POST['lastname'];
 $username = $_POST['username'];
@@ -14,7 +14,7 @@ $sql="UPDATE users SET name='$name', lastname='$lastname', username='$username',
 $query = mysqli_query($con, $sql);
 
 if($query){
-    Header("Location: index.php");
+    Header("Location: modifyUsers.php");
 }else{
 
 }
