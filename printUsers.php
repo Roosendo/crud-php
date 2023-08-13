@@ -31,11 +31,14 @@ $pdf->Cell(0, 10, 'Lista de Usuarios', 0, 1, 'C');
 $pdf->Ln(10);
 
 $pdf->setFont('times', 'B', 12);
+// agregar color de fondo al encabezado de la tabla
 $pdf->setFillColor(200, 220, 255);
+// todo el encabezado de la tabla
 $pdf->Cell(60, 10, 'Nombre completo', 1, 0, 'C', 1);
 $pdf->Cell(60, 10, 'Usuario', 1, 0, 'C', 1);
 $pdf->Cell(60, 10, 'Email', 1, 1, 'C', 1);
 
+// todas las celdas para cada usuario
 $pdf->setFont('dejavusans', '', 11);
 while ($row = mysqli_fetch_assoc($query)) {
   $pdf->Cell(60, 10, $row['full_name'], 1, 0, 'C');
