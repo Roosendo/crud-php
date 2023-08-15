@@ -20,6 +20,7 @@ $query = mysqli_query($con, $sql);
     <a class="tab active">Modificar Usuario</a>
     <a href="deleteUsers.php" class="tab">Eliminar Usuario</a>
     <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
+    <a href="index.html" class="tab">Cerrar Sesión</a>
   </div>
   <div class="content">
     <h2>Todos los Usuarios ...</h2>

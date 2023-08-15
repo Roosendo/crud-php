@@ -13,7 +13,7 @@ $sql = "INSERT INTO users VALUES('$id','$name','$lastname','$username','$passwor
 $query = mysqli_query($con, $sql);
 
 if($query){
-    Header("Location: index.php");
+    Header("Location: showUsers.php");
 }else{
 
 }
