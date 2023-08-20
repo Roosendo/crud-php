@@ -6,20 +6,20 @@
     $username = $_GET['username'];
     $password = $_GET['password'];
 
-    $sql = "select password from users where users.username = '$username'";
+    $sql = "select u.id, u.password, a.user_id, a.is_admin from users u inner join admins a on u.id = a.user_id where u.username = '$username';";
     $result = $con->query($sql);
     
     if ($result->num_rows > 0) {
       $row = $result->fetch_assoc();
       $pswUser = $row['password'];
-    } else { Header("Location: index.html"); }
+    } else { Header("Location: index.php"); }
 
     if ($pswUser == $password) {
-      Header('Location: showUsers.php');
-    } else { Header("Location: index.html"); }
-  } else { Header("Location: index.html"); }
-
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-  }
+      session_start();
+      $_SESSION['user_id'] = $row['id'];
+      $_SESSION['is_admin'] = $row['is_admin'];
+      header("Location: showUsers.php");
+      exit();
+    } else { Header("Location: index.php"); }
+  } else { Header("Location: index.php"); }
 ?>

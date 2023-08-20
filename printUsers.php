@@ -6,7 +6,7 @@ include('conexion.php');
 $con = connection();
 
 // consulta que devuelva solo lo necesario para imprimir
-$sql = "SELECT concat(name, ' ', lastname) as full_name, username, email from users;";
+$sql = "SELECT concat(name, ' ', lastname) as full_name, username, email from users order by full_name asc";
 $query = mysqli_query($con, $sql);
 
 // si la consulta devuelve un error esto ayudará

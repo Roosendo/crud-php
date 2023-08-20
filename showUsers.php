@@ -1,9 +1,15 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+  header("Location: index.html");
+  exit();
+}
 include("conexion.php");
 $con = connection();
 
 $sql = "SELECT * FROM users";
 $query = mysqli_query($con, $sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +23,12 @@ $query = mysqli_query($con, $sql);
 <body>
   <div id="dashboard">
     <a class="tab active">Mostrar Usuario</a>
-    <a href="modifyUsers.php" class="tab">Modificar Usuario</a>
-    <a href="deleteUsers.php" class="tab">Eliminar Usuario</a>
+    <?php if ($_SESSION['is_admin'] == 1): ?>
+      <a href='modifyUsers.php' class='tab'>Modificar Usuario</a>
+      <a href='deleteUsers.php' class='tab'>Eliminar Usuario</a>
+    <?php endif; ?>
     <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
-    <a href="index.html" class="tab">Cerrar Sesión</a>
+    <a href="logOut.php" class="tab">Cerrar Sesión</a>
   </div>
   <div class="content">
     <h2>Todos los Usuarios ...</h2>
@@ -32,7 +40,9 @@ $query = mysqli_query($con, $sql);
             <th>Nombre</th>
             <th>Apellidos</th>
             <th>Username</th>
-            <th>Password</th>
+            <?php if ($_SESSION['is_admin'] == 1): ?>
+              <th>Password</th>
+            <?php endif; ?>
             <th>Email</th>
           </tr>
         </thead>
@@ -43,7 +53,9 @@ $query = mysqli_query($con, $sql);
             <td><?= $row['name'] ?></td>
             <td><?= $row['lastname'] ?></td>
             <td><?= $row['username'] ?></td>
-            <td><?= $row['password'] ?></td>
+            <?php if ($_SESSION['is_admin'] == 1): ?>
+              <td><?= $row['password'] ?></td>
+            <?php endif; ?>
             <td><?= $row['email'] ?></td>
           </tr>
           <?php endwhile; ?>

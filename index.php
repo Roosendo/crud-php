@@ -19,8 +19,19 @@
         
         <input type="submit" value="Iniciar Sesión" class="button"/>
       </form>
+      <?php
+      if (isset($_GET['error'])) {
+        $error = $_GET['error'];
+        if ($error == 'duplicate'): ?>
+          <p>Usuario o correo ya registrado.</p>
+        <?php elseif ($error == 'insert'): ?>
+          <p>Error al registrarse.</p>
+        <?php endif;
+      }
+      ?>
+
       <div>
-        <p><a href="#">¿Olvidaste tu Contraseña?</a></p><br>
+        <p><a href="olvidarContraseña.html">¿Olvidaste tu Contraseña?</a></p><br>
         <p><a href="registro.php">¡Regístrate!</a></p>
       </div>
     </div>
