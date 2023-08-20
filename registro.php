@@ -28,7 +28,7 @@ $query = mysqli_query($con, $sql);
 
         <input type="submit" value="Agregar" />
       </form>
-      <h2><a href="index.html">Iniciar Sesión</a></h2>
+      <h2><a href="index.html">Cancelar</a></h2>
     </div>
   </body>
 </html>
