@@ -53,5 +53,5 @@ if (!$query_admin) {
 // Confirmar transacción exitosa
 mysqli_commit($con);
 
-header("Location: index.php");
+header("Location: index.php?error=nice");
 ?>

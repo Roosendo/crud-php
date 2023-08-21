@@ -26,6 +26,14 @@
           <p>Usuario o correo ya registrado.</p>
         <?php elseif ($error == 'insert'): ?>
           <p>Error al registrarse.</p>
+        <?php elseif ($error == 'database'): ?>
+          <p>Error en la base de datos</p>
+        <?php elseif ($error == 'nice'): ?>
+          <p>Registrado exitosamente!</p>
+        <?php elseif ($error == 'credencial'): ?>
+          <p>Usuario o Contraseña incorrectos.</p>
+        <?php else: ?>
+          <p></p>
         <?php endif;
       }
       ?>

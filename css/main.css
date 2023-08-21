@@ -17,9 +17,9 @@ a {
   width: 40vw;
   height: 80vh;
   margin: 0 auto;
+  gap: 35px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   margin-top: 50px;
   background: transparent;

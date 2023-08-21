@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-  header("Location: index.html");
+  header("Location: index.php");
   exit();
 }
 
@@ -52,9 +52,23 @@ $query = mysqli_query($con, $sql);
             <td><?= $row['username'] ?></td>
             <td><?= $row['password'] ?></td>
             <td><?= $row['email'] ?></td>
-            <td><a href="delete.php?id=<?= $row['id'] ?>" class="users-table--delete">Eliminar</a></td>
+            <td><a href="" class="users-table--delete" onclick="confirmDeletion(<?= $row['id'] ?>)">Eliminar</a></td>
           </tr>
           <?php endwhile; ?>
+          <script>
+            var adminPassword = "<?= $_SESSION['password']; ?>";
+
+            function confirmDeletion(userId) {
+              var enteredPassword = prompt("Ingrese la contraseña del administrador para confirmar la eliminación:");
+
+              if (enteredPassword !== null && enteredPassword === adminPassword) {
+                // Redirige a delete.php con el ID del usuario
+                window.location.href = `delete.php?id=${userId}`;
+              } else {
+                alert("Contraseña de administrador incorrecta. Acción cancelada.");
+              }
+            }
+          </script>
         </tbody>
       </table>
     </div>

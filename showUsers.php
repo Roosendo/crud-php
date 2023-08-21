@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-  header("Location: index.html");
+  header("Location: index.php");
   exit();
 }
 include("conexion.php");
@@ -65,3 +65,10 @@ $query = mysqli_query($con, $sql);
   </div>
 </body>
 </html>
+
+<?php 
+if ($_SESSION['is_admin'] == 0) {
+  $_SESSION = array();
+  session_destroy();
+}
+?>
