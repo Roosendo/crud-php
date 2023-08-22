@@ -29,7 +29,7 @@ $query = mysqli_query($con, $sql);
       <a href='deleteUsers.php' class='tab'>Eliminar Usuario</a>
       <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
     <?php elseif ($_SESSION['is_admin'] == 2): ?>
-      <a href='createUser.php' class='tab'>Crear Usuario</a>
+      <a class='tab active'>Crear Usuario</a>
       <a href='modifyUsers.php' class='tab'>Actualizar Usuario</a>
       <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
     <?php endif; ?>
@@ -50,6 +50,11 @@ $query = mysqli_query($con, $sql);
         <input type="text" name="username" placeholder="Username" />
         <input type="password" name="password" placeholder="Password" />
         <input type="password" name="passwordsegunda" placeholder="Confirmar contraseña" />
+        <?php
+          if (isset($_GET['error']) && $_GET['error'] === 'password_mismatch') {
+            echo "<p class='error-message'>Las contraseñas no coinciden. Por favor, intenta de nuevo.</p>";
+          }
+        ?>
         <input type="email" name="email" placeholder="Email" />
         <?php if ($_SESSION['is_admin'] == 1): ?>
           <select name="typeUser">

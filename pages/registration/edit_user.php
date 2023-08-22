@@ -1,6 +1,6 @@
 <?php
 
-include("conexion.php");
+include("../../includes/conexion.php");
 $con = connection();
 
 $id=$_POST['id'];
@@ -14,6 +14,6 @@ $sql="UPDATE users SET name='$name', lastname='$lastname', username='$username',
 $query = mysqli_query($con, $sql);
 
 if($query){
-  header("Location: modifyUsers.php");
+  header("Location: ../users/modifyUsers.php");
 }
 ?>

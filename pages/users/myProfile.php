@@ -17,7 +17,7 @@ $query = mysqli_query($con, $sql);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="src/css/mainPage.css">
+  <link rel="stylesheet" href="../../assets/css/mainPage.css">
   <title>Vals Coffee | Mi Perfil</title>
 </head>
 <body>
@@ -37,7 +37,7 @@ $query = mysqli_query($con, $sql);
     <a href="../authentication/logOut.php" class="tab">Cerrar Sesión</a>
   </div>
   <div class="content">
-    <img src="src/imgs/user.png" alt="Profile Picture">
+    <img src="../../assets/imgs/user.png" alt="Profile Picture">
 
   </div>
 </body>

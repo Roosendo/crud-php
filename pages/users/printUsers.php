@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
   // importar el modulo para crear pdf
   require_once('../../includes/tcpdf/tcpdf.php');
   // importar el archivo de la conexion a la base de datos
-  include('conexion.php');
+  include('../../includes/conexion.php');
   $con = connection();
 
   // consulta que devuelva solo lo necesario para imprimir

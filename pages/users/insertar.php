@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../../includes/conexion.php");
 $con = connection();
 
@@ -22,15 +23,17 @@ $email = mysqli_real_escape_string($con, $email);
 $sql_check = "SELECT id FROM users WHERE username = '$username' OR email = '$email'";
 $query_check = mysqli_query($con, $sql_check);
 
-// si hya una sesion activa se enviara a createUsers, sino a registro
+// si hay una sesion activa se enviara a createUsers, sino a registro
 if ($_SESSION) {
-  // si las 
+  // si devuelve mas de una row es porque hay un usuario que ya existe
   if (mysqli_num_rows($query_check) > 0) {
-    header("Location: ../users/createUsers.php?error=duplicate");
+    header("Location: createUser.php?error=duplicate");
     exit();
   }
+
   if ($password !== $passwordsegunda) {
-    header("Location: ../users/createUsers.php?error=password_mismatch");
+    header("Location: createUser.php?error=password_mismatch");
+    exit();
   }
 } else {
   if (mysqli_num_rows($query_check) > 0) {
@@ -40,7 +43,7 @@ if ($_SESSION) {
   
   // verificar si las contraseñas son iguales
   if ($password !== $passwordsegunda) {
-    header("Location: registro.php?error=password_mismatch");
+    header("Location: ../registration/registro.php?error=password_mismatch");
     exit();
   }
 }
@@ -75,7 +78,7 @@ if (!$query_admin) {
 mysqli_commit($con);
 
 if ($_SESSION) {
-  header("Location: ../users/createUser.php?error=nice");
+  header("Location: createUser.php?error=nice");
 } else {
   header("Location: ../../index.php?error=nice");
 }

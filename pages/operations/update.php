@@ -18,7 +18,7 @@
     </head>
     <body>
         <div class="users-form">
-            <form action="../users/edit_user.php" method="POST">
+            <form action="../registration/edit_user.php" method="POST">
                 <input type="hidden" name="id" value="<?= $row['id']?>">
                 <input type="text" name="name" placeholder="Nombre" value="<?= $row['name']?>">
                 <input type="text" name="lastname" placeholder="Apellidos" value="<?= $row['lastname']?>">

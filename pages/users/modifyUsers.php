@@ -21,7 +21,7 @@ if ($_SESSION['is_admin'] == 1) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="src/css/mainPage.css">
+  <link rel="stylesheet" href="../../assets/css/mainPage.css">
   <title>Vals Coffee | Actualizar</title>
 </head>
 <body>
@@ -29,12 +29,12 @@ if ($_SESSION['is_admin'] == 1) {
     <a href="showUsers.php" class="tab">Mostrar Usuario</a>
     <?php if ($_SESSION['is_admin'] == 1): ?>
       <a href='createUser.php' class='tab'>Crear Usuario</a>
-      <a href='modifyUsers.php' class='tab active'>Modificar Usuario</a>
+      <a href='modifyUsers.php' class='tab active'>Actualizar Usuario</a>
       <a href='deleteUsers.php' class='tab'>Eliminar Usuario</a>
       <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
     <?php elseif ($_SESSION['is_admin'] == 2): ?>
       <a href='createUser.php' class='tab'>Crear Usuario</a>
-      <a href='modifyUsers.php' class='tab'>Actualizar Usuario</a>
+      <a href='modifyUsers.php' class='tab active'>Actualizar Usuario</a>
       <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
     <?php endif; ?>
     <a href="myProfile.php" class="tab">Mi Perfil</a>
