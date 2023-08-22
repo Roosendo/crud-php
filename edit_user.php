@@ -14,9 +14,6 @@ $sql="UPDATE users SET name='$name', lastname='$lastname', username='$username',
 $query = mysqli_query($con, $sql);
 
 if($query){
-    Header("Location: modifyUsers.php");
-}else{
-
+  header("Location: modifyUsers.php");
 }
-
 ?>

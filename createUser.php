@@ -17,7 +17,7 @@ $query = mysqli_query($con, $sql);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/mainPage.css">
-  <link href="css/miestilo.css" rel="stylesheet">
+  <link href="src/css/miestilo.css" rel="stylesheet">
   <title>Vals Coffee | Crear</title>
 </head>
 <body>

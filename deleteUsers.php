@@ -21,7 +21,7 @@ if ($_SESSION['is_admin'] == 1) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/mainPage.css">
+  <link rel="stylesheet" href="src/css/mainPage.css">
   <title>Vals Coffee | Eliminar</title>
 </head>
 <body>

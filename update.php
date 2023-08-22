@@ -15,7 +15,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/miestilo.css" rel="stylesheet">
+        <link href="src/css/miestilo.css" rel="stylesheet">
         <title>Editar usuarios</title>
         
     </head>
