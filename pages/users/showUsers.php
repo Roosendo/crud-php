@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-  header("Location: index.php");
+  header("Location: ../../index.php");
   exit();
 }
-include("conexion.php");
+include("../../includes/conexion.php");
 $con = connection();
 
 if ($_SESSION['is_admin'] == 1) {
@@ -21,7 +21,7 @@ if ($_SESSION['is_admin'] == 1) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="src/css/mainPage.css">
+  <link rel="stylesheet" href="../../assets/css/mainPage.css">
   <title>Vals Coffee | Ver</title>
 </head>
 <body>
@@ -38,7 +38,7 @@ if ($_SESSION['is_admin'] == 1) {
       <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
     <?php endif; ?>
     <a href="myProfile.php" class="tab">Mi Perfil</a>
-    <a href="logOut.php" class="tab">Cerrar Sesión</a>
+    <a href="../authentication/logOut.php" class="tab">Cerrar Sesión</a>
   </div>
   <div class="content">
     <h2>Todos los Usuarios ...</h2>

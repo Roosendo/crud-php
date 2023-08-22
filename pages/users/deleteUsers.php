@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-  header("Location: index.php");
+  header("Location: ../../index.php");
   exit();
 } else if ($_SESSION['is_admin'] == 1 || $_SESSION['is_admin'] == 2) {
-  include("conexion.php");
+  include("../../includes/conexion.php");
 $con = connection();
 
 if ($_SESSION['is_admin'] == 1) {
@@ -38,7 +38,7 @@ if ($_SESSION['is_admin'] == 1) {
       <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
     <?php endif; ?>
     <a href="myProfile.php" class="tab">Mi Perfil</a>
-    <a href="logOut.php" class="tab">Cerrar Sesión</a>
+    <a href="../authentication/logOut.php" class="tab">Cerrar Sesión</a>
   </div>
   <div class="content">
     <h2>Todos los Usuarios ...</h2>
@@ -84,12 +84,12 @@ if ($_SESSION['is_admin'] == 1) {
           function verifyAdminPassword(userId, adminPassword) {
             $.ajax({
               type: "POST",
-              url: "verify_password.php",
+              url: "../authentication/verify_password.php",
               data: { userId: userId, adminPassword: adminPassword },
               success: function(response) {
                 if (response === 'success') {
                   // Contraseña correcta, redirige a delete.php con el ID del usuario
-                  window.location.href = `delete.php?id=${userId}`;
+                  window.location.href = `../operations/delete.php?id=${userId}`;
                 } else if (response === 'error') {
                   alert("Contraseña incorrecta o acción cancelada.");
                 }
@@ -104,7 +104,7 @@ if ($_SESSION['is_admin'] == 1) {
 </body>
 </html>
 <?php } else {
-  header("Location: index.php");
+  header("Location: ../../index.php");
   exit();
 }
 ?>

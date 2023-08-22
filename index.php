@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <title>Sistema</title>
 </head>
 <body>
 	<center>
-	<form method="get" action="./procesar.php" class="form_main">
+	<form method="get" action="pages/registration/procesar.php" class="form_main">
     <p class="heading">Login</p>
     <div class="inputContainer">
       <svg class="inputIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2e2e2e" viewBox="0 0 16 16">
@@ -27,8 +27,8 @@
 		</div>
               
 		<button id="button">Iniciar Sesi&oacute;n</button>
-      <p class="forgotLink"><a href="olvidarContraseña.html">¿Olvidaste tu Contraseña?</a></p><br>
-      <p class="forgotLink"><a href="registro.php">¡Regístrate!</a></p>
+      <p class="forgotLink"><a href="pages/registration/olvidarContraseña.html">¿Olvidaste tu Contraseña?</a></p><br>
+      <p class="forgotLink"><a href="pages/registration/registro.php">¡Regístrate!</a></p>
 	</form>
 
 	<?php

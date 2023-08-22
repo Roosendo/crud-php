@@ -1,11 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-  header("Location: index.php");
+  header("Location: ../../index.php");
   exit();
 }
 
-include("conexion.php");
+include("../../includes/conexion.php");
 $con = connection();
 
 $sql = "SELECT * FROM users";
@@ -34,7 +34,7 @@ $query = mysqli_query($con, $sql);
       <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
     <?php endif; ?>
     <a href="myProfile.php" class="tab active">Mi Perfil</a>
-    <a href="logOut.php" class="tab">Cerrar Sesión</a>
+    <a href="../authentication/logOut.php" class="tab">Cerrar Sesión</a>
   </div>
   <div class="content">
     <img src="src/imgs/user.png" alt="Profile Picture">

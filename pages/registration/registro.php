@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include("../../includes/conexion.php");
 $con = connection();
 
 $sql = "SELECT * FROM users";
@@ -12,7 +12,7 @@ $query = mysqli_query($con, $sql);
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="src/css/miestilo.css" rel="stylesheet" />
+    <link href="../../assets/css/miestilo.css" rel="stylesheet" />
     <title>Users CRUD</title>
   </head>
 
@@ -34,7 +34,7 @@ $query = mysqli_query($con, $sql);
 
         <input type="submit" value="Agregar" />
       </form>
-      <h2><a href="index.php">Cancelar</a></h2>
+      <h2><a href="../../index.php">Cancelar</a></h2>
     </div>
   </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-  include("conexion.php");
+  include("../../includes/conexion.php");
   $con = connection();
   
   if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -12,19 +12,19 @@
     if ($result->num_rows > 0) {
       $row = $result->fetch_assoc();
       $pswUser = $row['password'];
-    } else { Header("Location: index.php?error=database"); }
+    } else { Header("Location: ../../index.php?error=database"); }
 
     if ($pswUser == $password) {
       session_start();
       $_SESSION['user_id'] = $row['id'];
       $_SESSION['is_admin'] = $row['is_admin'];
       $_SESSION['password'] = $row['password'];
-      header("Location: showUsers.php");
+      header("Location: ../users/showUsers.php");
       exit();
     } else {
-      Header("Location: index.php?error=credencial"); 
+      Header("Location: ../../index.php?error=credencial"); 
     }
   } else {
-    Header("Location: index.php");
+    Header("Location: ../../index.php");
   }
 ?>

@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_id'])) {
   exit();
 }
 
-include("conexion.php");
+include("../../includes/conexion.php");
 $con = connection();
 
 $userId = $_POST['userId'];

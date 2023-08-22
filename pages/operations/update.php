@@ -1,13 +1,10 @@
 <?php 
-    include("conexion.php");
-    $con=connection();
-
-    $id=$_GET['id'];
-
-    $sql="SELECT * FROM users WHERE id='$id'";
-    $query=mysqli_query($con, $sql);
-
-    $row=mysqli_fetch_array($query);
+  include("../../includes/conexion.php");
+  $con=connection();
+  $id=$_GET['id'];
+  $sql="SELECT * FROM users WHERE id='$id'";
+  $query=mysqli_query($con, $sql);
+  $row=mysqli_fetch_array($query);
 ?>
 
 <!DOCTYPE html>
@@ -15,13 +12,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="src/css/miestilo.css" rel="stylesheet">
+        <link href="../../assets/css/miestilo.css" rel="stylesheet">
         <title>Editar usuarios</title>
         
     </head>
     <body>
         <div class="users-form">
-            <form action="edit_user.php" method="POST">
+            <form action="../users/edit_user.php" method="POST">
                 <input type="hidden" name="id" value="<?= $row['id']?>">
                 <input type="text" name="name" placeholder="Nombre" value="<?= $row['name']?>">
                 <input type="text" name="lastname" placeholder="Apellidos" value="<?= $row['lastname']?>">

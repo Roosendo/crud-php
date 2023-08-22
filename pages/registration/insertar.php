@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include("../../includes/conexion.php");
 $con = connection();
 
 $name = $_POST['name'];
@@ -22,14 +22,27 @@ $email = mysqli_real_escape_string($con, $email);
 $sql_check = "SELECT id FROM users WHERE username = '$username' OR email = '$email'";
 $query_check = mysqli_query($con, $sql_check);
 
-if (mysqli_num_rows($query_check) > 0) {
-  header("Location: index.php?error=duplicate");
-  exit();
-}
-// verificar si las contraseñas son iguales
-if ($password !== $passwordsegunda) {
-  header("Location: registro.php?error=password_mismatch");
-  exit();
+// si hya una sesion activa se enviara a createUsers, sino a registro
+if ($_SESSION) {
+  // si las 
+  if (mysqli_num_rows($query_check) > 0) {
+    header("Location: ../users/createUsers.php?error=duplicate");
+    exit();
+  }
+  if ($password !== $passwordsegunda) {
+    header("Location: ../users/createUsers.php?error=password_mismatch");
+  }
+} else {
+  if (mysqli_num_rows($query_check) > 0) {
+    header("Location: ../../index.php?error=duplicate");
+    exit();
+  }
+  
+  // verificar si las contraseñas son iguales
+  if ($password !== $passwordsegunda) {
+    header("Location: registro.php?error=password_mismatch");
+    exit();
+  }
 }
 
 // Iniciar transacción
@@ -41,7 +54,7 @@ $query_user = mysqli_query($con, $sql_user);
 
 if (!$query_user) {
   mysqli_rollback($con);
-  header("Location: index.php?error=insert");
+  header("Location: ../../index.php?error=insert");
   exit();
 }
 
@@ -54,7 +67,7 @@ $query_admin = mysqli_query($con, $sql_admin);
 
 if (!$query_admin) {
   mysqli_rollback($con);
-  header("Location: index.php?error=insert");
+  header("Location: ../../index.php?error=insert");
   exit();
 }
 
@@ -62,8 +75,8 @@ if (!$query_admin) {
 mysqli_commit($con);
 
 if ($_SESSION) {
-  header("Location: createUser.php?error=nice");
+  header("Location: ../users/createUser.php?error=nice");
 } else {
-  header("Location: index.php?error=nice");
+  header("Location: ../../index.php?error=nice");
 }
 ?>

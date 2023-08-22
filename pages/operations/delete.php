@@ -1,6 +1,6 @@
 <?php
 
-include("conexion.php");
+include("../../includes/conexion.php");
 $con = connection();
 
 $id = $_GET["id"];
@@ -18,7 +18,7 @@ mysqli_stmt_bind_param($stmt2, "i", $id);
 $query2 = mysqli_stmt_execute($stmt2);
 
 if ($query1 && $query2) {
-  header("Location: deleteUsers.php");
+  header("Location: ../users/deleteUsers.php");
 }
 
 ?>

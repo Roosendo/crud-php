@@ -1,11 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-  header("Location: index.php");
+  header("Location: ../../index.php");
   exit();
 } else if ($_SESSION['is_admin'] == 1 || $_SESSION['is_admin'] == 2) {
   // importar el modulo para crear pdf
-  require_once('./tcpdf/tcpdf.php');
+  require_once('../../includes/tcpdf/tcpdf.php');
   // importar el archivo de la conexion a la base de datos
   include('conexion.php');
   $con = connection();

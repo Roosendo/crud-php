@@ -1,11 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
-  header("Location: index.php");
+  header("Location: ../../index.php");
   exit();
 } else if ($_SESSION['is_admin'] == 1 || $_SESSION['is_admin'] == 2) {
-  include("conexion.php");
-$con = connection();
+  include("../../includes/conexion.php");
+  $con = connection();
 
 $sql = "SELECT * FROM users";
 $query = mysqli_query($con, $sql);
@@ -16,8 +16,8 @@ $query = mysqli_query($con, $sql);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/mainPage.css">
-  <link href="src/css/miestilo.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/mainPage.css">
+  <link rel="stylesheet" href="../../assets/css/miestilo.css">
   <title>Vals Coffee | Crear</title>
 </head>
 <body>
@@ -34,7 +34,7 @@ $query = mysqli_query($con, $sql);
       <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
     <?php endif; ?>
     <a href="myProfile.php" class="tab">Mi Perfil</a>
-    <a href="logOut.php" class="tab">Cerrar Sesión</a>
+    <a href="../authentication/logOut.php" class="tab">Cerrar Sesión</a>
   </div>
   <div class="content">
     <div class="users-form">
@@ -44,7 +44,7 @@ $query = mysqli_query($con, $sql);
         if ($error == 'nice'): ?>
           <p>Usuario creado.</p>
         <?php endif; endif; ?>
-      <form action="insertar.php" method="POST">
+      <form action="../registration/insertar.php" method="POST">
         <input type="text" name="name" placeholder="Nombre" />
         <input type="text" name="lastname" placeholder="Apellidos" />
         <input type="text" name="username" placeholder="Username" />
@@ -66,7 +66,7 @@ $query = mysqli_query($con, $sql);
 </body>
 </html>
 <?php } else {
-  header("Location: index.php");
+  header("Location: ../../index.php");
   exit();
 }
 ?>
