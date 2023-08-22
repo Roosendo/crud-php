@@ -1,6 +1,6 @@
 <?php
 // importar el modulo para crear pdf
-require_once('./tcpdf/TCPDF/tcpdf.php');
+require_once('./tcpdf/tcpdf.php');
 // importar el archivo de la conexion a la base de datos
 include('conexion.php');
 $con = connection();
