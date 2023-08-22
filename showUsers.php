@@ -7,9 +7,13 @@ if (!isset($_SESSION['user_id'])) {
 include("conexion.php");
 $con = connection();
 
-$sql = "SELECT * FROM users";
-$query = mysqli_query($con, $sql);
-
+if ($_SESSION['is_admin'] == 1) {
+  $sql = "select users.*, admins.is_admin from users left join admins on users.id = admins.user_id";
+  $query = mysqli_query($con, $sql);
+} else {
+  $sql = "select users.*, admins.is_admin from users left join admins on users.id = admins.user_id where admins.is_admin = 0";
+  $query = mysqli_query($con, $sql);
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,10 +28,16 @@ $query = mysqli_query($con, $sql);
   <div id="dashboard">
     <a class="tab active">Mostrar Usuario</a>
     <?php if ($_SESSION['is_admin'] == 1): ?>
+      <a href='createUser.php' class='tab'>Crear Usuario</a>
       <a href='modifyUsers.php' class='tab'>Modificar Usuario</a>
       <a href='deleteUsers.php' class='tab'>Eliminar Usuario</a>
+      <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
+    <?php elseif ($_SESSION['is_admin'] == 2): ?>
+      <a href='createUser.php' class='tab'>Crear Usuario</a>
+      <a href='modifyUsers.php' class='tab'>Actualizar Usuario</a>
+      <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
     <?php endif; ?>
-    <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
+    <a href="myProfile.php" class="tab">Mi Perfil</a>
     <a href="logOut.php" class="tab">Cerrar Sesión</a>
   </div>
   <div class="content">
@@ -44,10 +54,13 @@ $query = mysqli_query($con, $sql);
               <th>Password</th>
             <?php endif; ?>
             <th>Email</th>
+            <?php if ($_SESSION['is_admin'] == 1): ?>
+              <th>Tipo de Usuario</th>
+            <?php endif; ?>
           </tr>
         </thead>
         <tbody>
-          <?php while ($row = mysqli_fetch_array($query)): ?>
+        <?php while ($row = mysqli_fetch_array($query)): ?>
           <tr>
             <td><?= $row['id'] ?></td>
             <td><?= $row['name'] ?></td>
@@ -57,6 +70,17 @@ $query = mysqli_query($con, $sql);
               <td><?= $row['password'] ?></td>
             <?php endif; ?>
             <td><?= $row['email'] ?></td>
+            <?php if ($_SESSION['is_admin'] == 1): ?>
+              <td>
+                <?php if ($row['is_admin'] == 0): ?>
+                  Empleado
+                <?php elseif ($row['is_admin'] == 1): ?>
+                  Gerente
+                <?php elseif ($row['is_admin'] == 2): ?>
+                  Supervisor
+                <?php endif; ?>
+              </td>
+            <?php endif; ?>
           </tr>
           <?php endwhile; ?>
         </tbody>
@@ -65,10 +89,3 @@ $query = mysqli_query($con, $sql);
   </div>
 </body>
 </html>
-
-<?php 
-if ($_SESSION['is_admin'] == 0) {
-  $_SESSION = array();
-  session_destroy();
-}
-?>

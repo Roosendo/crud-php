@@ -7,6 +7,8 @@ $lastname = $_POST['lastname'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 $email = $_POST['email'];
+$typeUserString = $_POST['typeUser'];
+$typeUserString ? $typeUser = intval($typeUserString) : $typeUser = 0;
 
 // Validación y sanitización de entrada
 $name = mysqli_real_escape_string($con, $name);
@@ -41,7 +43,7 @@ if (!$query_user) {
 $user_id = mysqli_insert_id($con);
 
 // Insertar registro en tabla 'admins'
-$sql_admin = "INSERT INTO admins (user_id, is_admin) VALUES ($user_id, false)";
+$sql_admin = "INSERT INTO admins (user_id, is_admin) VALUES ($user_id, $typeUser)";
 $query_admin = mysqli_query($con, $sql_admin);
 
 if (!$query_admin) {
@@ -53,5 +55,9 @@ if (!$query_admin) {
 // Confirmar transacción exitosa
 mysqli_commit($con);
 
-header("Location: index.php?error=nice");
+if ($_SESSION) {
+  header("Location: createUser.php?error=nice");
+} else {
+  header("Location: index.php?error=nice");
+}
 ?>
