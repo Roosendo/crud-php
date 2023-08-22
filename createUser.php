@@ -49,6 +49,7 @@ $query = mysqli_query($con, $sql);
         <input type="text" name="lastname" placeholder="Apellidos" />
         <input type="text" name="username" placeholder="Username" />
         <input type="password" name="password" placeholder="Password" />
+        <input type="password" name="passwordsegunda" placeholder="Confirmar contraseña" />
         <input type="email" name="email" placeholder="Email" />
         <?php if ($_SESSION['is_admin'] == 1): ?>
           <select name="typeUser">

@@ -6,6 +6,7 @@ $name = $_POST['name'];
 $lastname = $_POST['lastname'];
 $username = $_POST['username'];
 $password = $_POST['password'];
+$passwordsegunda = $_POST['passwordsegunda'];
 $email = $_POST['email'];
 $typeUserString = $_POST['typeUser'];
 $typeUserString ? $typeUser = intval($typeUserString) : $typeUser = 0;
@@ -23,6 +24,11 @@ $query_check = mysqli_query($con, $sql_check);
 
 if (mysqli_num_rows($query_check) > 0) {
   header("Location: index.php?error=duplicate");
+  exit();
+}
+// verificar si las contraseñas son iguales
+if ($password !== $passwordsegunda) {
+  header("Location: registro.php?error=password_mismatch");
   exit();
 }
 
