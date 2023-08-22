@@ -4,3 +4,13 @@
 /vendor/
 /composer.lock
 /composer.phar
+/examples/
+/fonts/
+*.pdf
+/configs/
+/docs/
+/LICENSE.TXT
+/README.TXT
+/fonts/*.ttf
+!/fonts/dejavusans.ttf
+!/fonts/times.ttf

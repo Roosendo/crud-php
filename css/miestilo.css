@@ -45,7 +45,7 @@ select {
 
 .users-form form input[type='text']:focus,
 .users-form form input[type='password']:focus,
-.users-form form input[type='password']:focus {
+.users-form form input[type='email']:focus {
 	border-color: dodgerBlue;
 	box-shadow: 0 0 6px 0 dodgerBlue;
 }
