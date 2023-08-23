@@ -64,9 +64,45 @@ if ($_SESSION['is_admin'] == 1) {
             <td><?= $row['username'] ?></td>
             <td><?= $row['password'] ?></td>
             <td><?= $row['email'] ?></td>
-            <td><a href="../operations/update.php?id=<?= $row['id'] ?>" class="users-table--edit">Editar</a></td>
+            <?php if ($_SESSION['is_admin'] != 1): ?>
+              <td><a href="" class="users-table--edit" onclick="showConfirmation(<?= $row['id'] ?>)">Editar</a></td>
+            <?php else: ?>
+              <td><a href="../operations/update.php?id=<?= $row['id'] ?>" class="users-table--edit">Editar</a></td>
+            <?php endif; ?>
           </tr>
           <?php endwhile; ?>
+          <?php if ($_SESSION['is_admin'] != 1): ?>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+              function showConfirmation(userId) {
+                var confirmation = confirm("¿Estás seguro de que deseas actualizar este usuario?");
+
+                if (confirmation) {
+                  var adminPassword = prompt("Contraseña del gerente:");
+
+                  if (adminPassword !== null) {
+                    verifyAdminPassword(userId, adminPassword);
+                  }
+                }
+              }
+
+              function verifyAdminPassword(userId, adminPassword) {
+                $.ajax({
+                  type: "POST",
+                  url: "../authentication/verify_password.php",
+                  data: { userId: userId, adminPassword: adminPassword },
+                  success: function(response) {
+                    if (response === 'success') {
+                      // Contraseña correcta, redirige a delete.php con el ID del usuario
+                      window.location.href = `../operations/update.php?id=${userId}`;
+                    } else if (response === 'error') {
+                      alert("Contraseña incorrecta o acción cancelada.");
+                    }
+                  }
+                });
+              }
+            </script>
+          <?php endif; ?>
         </tbody>
       </table>
     </div>

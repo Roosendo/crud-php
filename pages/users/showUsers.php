@@ -29,7 +29,7 @@ if ($_SESSION['is_admin'] == 1) {
     <a class="tab active">Mostrar Usuario</a>
     <?php if ($_SESSION['is_admin'] == 1): ?>
       <a href='createUser.php' class='tab'>Crear Usuario</a>
-      <a href='modifyUsers.php' class='tab'>Modificar Usuario</a>
+      <a href='modifyUsers.php' class='tab'>Actualizar Usuario</a>
       <a href='deleteUsers.php' class='tab'>Eliminar Usuario</a>
       <a href="printUsers.php" target="_blank" class="tab">Imprimir Usuarios</a>
     <?php elseif ($_SESSION['is_admin'] == 2): ?>
