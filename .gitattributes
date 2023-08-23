@@ -1,0 +1,6 @@
+includes/tcpdf/.github export-ignore
+includes/tcpdf/.gitignore export-ignore
+includes/tcpdf/.gitattributes export-ignore
+includes/tcpdf/tests export-ignore
+includes/tcpdf/scripts export-ignore
+includes/tcpdf/phpstan.neon.dist export-ignore

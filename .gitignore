@@ -1,0 +1,16 @@
+includes/tcpdf/.idea
+includes/tcpdf/.phpdoc
+includes/tcpdf/*.bak
+includes/tcpdf/vendor/
+includes/tcpdf/composer.lock
+includes/tcpdf/composer.phar
+includes/tcpdf/examples/
+includes/tcpdf/fonts/
+includes/tcpdf/*.pdf
+includes/tcpdf/configs/
+includes/tcpdf/docs/
+includes/tcpdf/LICENSE.TXT
+includes/tcpdf/README.TXT
+includes/tcpdf/fonts/*.ttf
+!includes/tcpdf/fonts/dejavusans.ttf
+!includes/tcpdf/fonts/times.ttf
