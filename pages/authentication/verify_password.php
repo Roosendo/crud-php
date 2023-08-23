@@ -13,7 +13,7 @@ $adminPassword = $_POST['adminPassword'];
 
 // Verificar la contraseña del administrador
 if ($_SESSION['is_admin'] == 2) {
-  $sql = "SELECT u.password from users u join admins a on u.id = a.user_id where a.is_admin = 1;";
+  $sql = "SELECT u.password from users u join admins a on u.id = a.user_id where a.is_admin = 1";
   $query = mysqli_query($con, $sql);
 
   if ($query) {

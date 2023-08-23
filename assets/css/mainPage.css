@@ -43,13 +43,6 @@ body {
   background-color: #d4c09e;
 }
 
-.content img {
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -92,4 +85,30 @@ tr:nth-child(odd) {
   text-align: center;
   font-weight: bold;
   text-decoration: none;
+}
+
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-image {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 10px;
+}
+
+.profile-details {
+  text-align: center;
+}
+
+.profile-details p {
+  margin: 5px 0;
 }

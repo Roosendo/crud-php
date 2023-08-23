@@ -8,8 +8,19 @@ if (!isset($_SESSION['user_id'])) {
 include("../../includes/conexion.php");
 $con = connection();
 
-$sql = "SELECT * FROM users";
-$query = mysqli_query($con, $sql);
+// Obtener el user_id de la sesión
+$user_id = $_SESSION['user_id'];
+
+// Consulta para obtener los datos del usuario
+$sql = "SELECT u.*, a.is_admin from users u join admins a on u.id = a.user_id where u.id = $user_id";
+$result = mysqli_query($con, $sql);
+
+if ($result) {
+  $user_data = mysqli_fetch_assoc($result);
+} else {
+  // Manejo de error en caso de fallo de consulta
+  die("Error al obtener los datos del usuario");
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,8 +48,21 @@ $query = mysqli_query($con, $sql);
     <a href="../authentication/logOut.php" class="tab">Cerrar Sesión</a>
   </div>
   <div class="content">
-    <img src="../../assets/imgs/user.png" alt="Profile Picture">
-
+    <div class="profile-container">
+      <img src="../../assets/imgs/user.png" alt="Profile Picture" class="profile-image">
+      <div class="profile-details">
+        <p>Tu nombre es: <b><?= $user_data['name']; ?></b></p>
+        <p>Tu correo es: <b><?= $user_data['email']; ?></b></p>
+        <p>Tu usuario es: <b><?= $user_data['username']; ?></b></p>
+        <?php if ($user_data['is_admin'] == 0): ?>
+          <p>Eres un: <b>Empleado</b></p>
+        <?php elseif ($user_data['is_admin'] == 1): ?>
+          <p>Eres un: <b>Gerente</b></p>
+        <?php elseif ($user_data['is_admin'] == 2): ?>
+          <p>Eres un: <b>Supervisor</b></p>
+        <?php endif; ?>
+      </div>
+    </div>
   </div>
 </body>
 </html>
