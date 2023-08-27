@@ -44,7 +44,7 @@ $query = mysqli_query($con, $sql);
         if ($error == 'nice'): ?>
           <p>Usuario creado.</p>
         <?php endif; endif; ?>
-      <form action="../registration/insertar.php" method="POST">
+      <form action="./insertar.php" method="POST">
         <input type="text" name="name" placeholder="Nombre" />
         <input type="text" name="lastname" placeholder="Apellidos" />
         <input type="text" name="username" placeholder="Username" />
