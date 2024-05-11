@@ -1,12 +1,16 @@
-includes/tcpdf/.idea
-includes/tcpdf/.phpdoc
-includes/tcpdf/*.bak
-includes/tcpdf/vendor/
-includes/tcpdf/composer.lock
-includes/tcpdf/composer.phar
-includes/tcpdf/examples/
-includes/tcpdf/*.pdf
-includes/tcpdf/configs/
-includes/tcpdf/docs/
-includes/tcpdf/LICENSE.TXT
-includes/tcpdf/README.TXT
+# Ignorar archivos y carpetas generados por Composer
+/vendor
+/composer.lock
+/composer.phar
+
+# Ignorar archivos y carpetas generados por TCPDF
+/tcpdf/fonts
+/tcpdf/images
+/tcpdf/include/tcpdf_fonts.php
+/tcpdf/include/tcpdf_static.php
+/tcpdf/examples
+/tcpdf/tools
+/tcpdf/docs
+
+# Ignorar archivos de configuración local
+.env

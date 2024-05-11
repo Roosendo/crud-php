@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_id'])) {
   exit();
 } else if ($_SESSION['is_admin'] == 1 || $_SESSION['is_admin'] == 2) {
   // importar el modulo para crear pdf
-  require_once('../../includes/tcpdf/tcpdf.php');
+  require_once('vendor/autoload.php');
   // importar el archivo de la conexion a la base de datos
   include('../../includes/conexion.php');
   $con = connection();
